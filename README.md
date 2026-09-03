@@ -46,10 +46,3 @@ imbalanced-learn
 scipy
 ```
 
-## Uso
-
-Abre el notebook en Google Colab o Jupyter y sigue las instrucciones de cada sección. Los datos simulados ya están incluidos para desarrollo; para producción, descarga el CSV real desde Oracle's Elixir y ajusta la celda de carga.
-
----
-
-Proyecto desarrollado para el curso de Aprendizaje Automático.
