@@ -94,3 +94,4 @@ python -m src.predict --input examples/ejemplo_entrada.json --umbral 0.45
 ## Para abrir y presentar rápido (sin instalar nada)
 - **Notebook como página web:** `notebooks/01_fase_final.html` — un solo archivo autocontenido (tablas y figuras incrustadas). Se abre con doble clic en cualquier navegador y sirve para proyectar.
 - **Presentación:** `reports/presentacion_fase_final.pptx` — 16 diapositivas con **notas del orador** (guion) en cada una. Se abre en PowerPoint, Google Slides o Keynote.
+- **Presentación corta (speech 5-7 min):** `reports/presentacion_speech_5min.pptx` — 9 diapositivas con el guion cronometrado en las notas del orador, para exponer lo principal.
