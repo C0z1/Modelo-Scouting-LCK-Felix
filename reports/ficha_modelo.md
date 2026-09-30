@@ -86,7 +86,7 @@ Recalibrar/umbral/reentrenar/suspender ante: caída sostenida de recall, aumento
 nuevas, cambio en la definición de "listo" o brechas excesivas entre grupos. Ver §28 del notebook.
 
 ## Responsable de revisión
-[Nombre del autor] — con supervisión del responsable de datos y el coach de academia.
+Felix Yael — con supervisión del responsable de datos y el coach de academia.
 
 ## Advertencia de seguridad
 Cargar archivos `joblib`/`pickle` de fuentes desconocidas puede ejecutar código arbitrario. Cargar solo

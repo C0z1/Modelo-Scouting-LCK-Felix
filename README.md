@@ -86,6 +86,7 @@ python -m src.predict --input examples/ejemplo_entrada.json --umbral 0.45
 - Versiones exactas de bibliotecas en `requirements.txt`.
 
 ## Documentación
+- **Informe técnico (PDF):** `reports/informe_tecnico_fase_final.pdf` — el notebook completo (31 secciones, incluidas las conclusiones personales) exportado a PDF.
 - **Técnica/operativa:** `reports/ficha_modelo.md`
 - **No técnica:** `reports/reporte_ejecutivo.md`
 - **Rúbrica y reglas:** `CLAUDE.md`
