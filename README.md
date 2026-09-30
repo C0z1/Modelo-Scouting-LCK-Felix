@@ -89,3 +89,7 @@ python -m src.predict --input examples/ejemplo_entrada.json --umbral 0.45
 - **Técnica/operativa:** `reports/ficha_modelo.md`
 - **No técnica:** `reports/reporte_ejecutivo.md`
 - **Rúbrica y reglas:** `CLAUDE.md`
+
+## Para abrir y presentar rápido (sin instalar nada)
+- **Notebook como página web:** `notebooks/01_fase_final.html` — un solo archivo autocontenido (tablas y figuras incrustadas). Se abre con doble clic en cualquier navegador y sirve para proyectar.
+- **Presentación:** `reports/presentacion_fase_final.pptx` — 16 diapositivas con **notas del orador** (guion) en cada una. Se abre en PowerPoint, Google Slides o Keynote.
