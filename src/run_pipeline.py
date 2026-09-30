@@ -685,21 +685,21 @@ def main() -> None:
          "cspm": 6.5, "earnedgpm": 300, "dpm": 380, "damageshare": 0.18, "vspm": 1.0,
          "goldat15": 4900, "xpat15": 5200, "csat15": 82, "golddiffat15": -700, "xpdiffat15": -500,
          "killsat15": 0, "assistsat15": 1, "deathsat15": 3, "year": 2023},
-        # medio
-        {"perfil": "Medio", "position": "top", "kills": 3, "deaths": 3, "assists": 5,
-         "cspm": 7.8, "earnedgpm": 375, "dpm": 500, "damageshare": 0.24, "vspm": 0.9,
-         "goldat15": 5700, "xpat15": 6000, "csat15": 100, "golddiffat15": 50, "xpdiffat15": 0,
+        # riesgo medio
+        {"perfil": "Riesgo medio", "position": "top", "kills": 3, "deaths": 3, "assists": 5,
+         "cspm": 7.6, "earnedgpm": 360, "dpm": 480, "damageshare": 0.23, "vspm": 0.9,
+         "goldat15": 5600, "xpat15": 5900, "csat15": 98, "golddiffat15": -50, "xpdiffat15": -30,
          "killsat15": 1, "assistsat15": 2, "deathsat15": 1, "year": 2023},
-        # categoría poco frecuente (posición desconocida) + soporte
+        # categoría poco frecuente (posición desconocida)
         {"perfil": "Categoría rara (pos. 'jungla')", "position": "jungla", "kills": 2, "deaths": 2, "assists": 10,
          "cspm": 5.5, "earnedgpm": 330, "dpm": 300, "damageshare": 0.12, "vspm": 2.6,
          "goldat15": 5200, "xpat15": 5600, "csat15": 70, "golddiffat15": 200, "xpdiffat15": 150,
          "killsat15": 1, "assistsat15": 4, "deathsat15": 1, "year": 2024},
-        # cercano al umbral
-        {"perfil": "Cercano al umbral", "position": "sup", "kills": 1, "deaths": 2, "assists": 9,
-         "cspm": 1.2, "earnedgpm": 250, "dpm": 260, "damageshare": 0.10, "vspm": 2.4,
-         "goldat15": 5400, "xpat15": 5300, "csat15": 30, "golddiffat15": 150, "xpdiffat15": 120,
-         "killsat15": 0, "assistsat15": 3, "deathsat15": 1, "year": 2024},
+        # cercano al umbral (probabilidad ~ umbral 0.40): perfil medio con earnedgpm ajustado
+        {"perfil": "Cercano al umbral", "position": "top", "kills": 3, "deaths": 3, "assists": 5,
+         "cspm": 7.8, "earnedgpm": 366, "dpm": 500, "damageshare": 0.24, "vspm": 0.9,
+         "goldat15": 5700, "xpat15": 6000, "csat15": 100, "golddiffat15": 50, "xpdiffat15": 0,
+         "killsat15": 1, "assistsat15": 2, "deathsat15": 1, "year": 2023},
     ])
     sim_in = perfiles.drop(columns=["perfil"])
     sim_out = predecir(sim_in, art)
