@@ -1,0 +1,4 @@
+| Configuración                     |   N.º características |   F1 (media CV) |   F1 (std CV) |   Tiempo CV (s) | Interpretabilidad      |
+|:----------------------------------|----------------------:|----------------:|--------------:|----------------:|:-----------------------|
+| Modelo completo                   |                    27 |          0.664  |        0.0187 |            14   | Media (todas las vars) |
+| Modelo reducido (SelectFromModel) |                    14 |          0.6631 |        0.015  |            28.1 | Mayor (menos vars)     |

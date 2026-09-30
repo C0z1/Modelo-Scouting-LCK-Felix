@@ -1,0 +1,43 @@
+{
+  "nombre": "Modelo de Scouting LCK",
+  "version": "1.0.0-fase-final",
+  "modelo_final": "Regresión Logística",
+  "fecha_entrenamiento": "2026-09-29",
+  "umbral": 0.4,
+  "features_entrada": [
+    "kills",
+    "deaths",
+    "assists",
+    "cspm",
+    "earnedgpm",
+    "dpm",
+    "damageshare",
+    "vspm",
+    "goldat15",
+    "xpat15",
+    "csat15",
+    "golddiffat15",
+    "xpdiffat15",
+    "killsat15",
+    "assistsat15",
+    "deathsat15",
+    "year",
+    "position"
+  ],
+  "target": "is_lck",
+  "clases": {
+    "1": "LCK",
+    "0": "LCK CL"
+  },
+  "entrenado_en": "train+val (test reservado para evaluación única)",
+  "metricas_test": {
+    "Accuracy": 0.7533,
+    "Precision": 0.6313,
+    "Recall": 0.7377,
+    "F1-score": 0.6803,
+    "ROC-AUC": 0.8316
+  },
+  "sha256_pipeline": "5b8818c80fc18f2229895aaeb58680184ddf6131eab5eb0c79b7b2c083084d3e",
+  "sklearn": "1.8.0",
+  "random_state": 42
+}

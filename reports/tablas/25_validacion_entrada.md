@@ -1,0 +1,7 @@
+| Caso                  | Entrada             | Resultado esperado         | Resultado obtenido                                                                                                   |
+|:----------------------|:--------------------|:---------------------------|:---------------------------------------------------------------------------------------------------------------------|
+| Registro válido       | completo y en rango | VÁLIDO, sin advertencias   | VÁLIDO                                                                                                               |
+| Campo faltante        | falta 'cspm'        | ERROR: columna requerida   | Falta la columna requerida: 'cspm'.                                                                                  |
+| Categoría desconocida | position='jungla'   | ADVERTENCIA (no bloquea)   | Posición(es) no reconocida(s): ['jungla']. El OneHotEncoder las tratará como desconocidas (handle_unknown='ignore'). |
+| Tipo incorrecto       | kills='cinco'       | ERROR: no numérico         | 'kills': 1 valor(es) no numérico(s).                                                                                 |
+| Valor extremo         | cspm=99             | ADVERTENCIA fuera de rango | 'cspm': 1 valor(es) fuera del rango plausible [0, 14].                                                               |

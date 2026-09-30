@@ -1,0 +1,254 @@
+{
+  "_meta": {
+    "fecha_ejecucion": "2026-09-29T21:51:32",
+    "random_state": 42,
+    "sklearn": "1.8.0",
+    "python": "3.11.15",
+    "duracion_s": 304.7
+  },
+  "datos": {
+    "n_filas": 8000,
+    "n_duplicados": 0,
+    "balance": {
+      "LCK": 0.355875,
+      "LCK CL": 0.644125
+    },
+    "ratio_desbalance": 1.8099754127151388
+  },
+  "particion": {
+    "train": 5600,
+    "val": 1200,
+    "test": 1200
+  },
+  "features_nuevas": {
+    "kda": -0.009,
+    "oro_por_cs15": -0.014,
+    "dominancia15": 0.314,
+    "participacion15": -0.007,
+    "impacto_dano": 0.013
+  },
+  "cv": {
+    "metodo": "RepeatedStratifiedKFold",
+    "n_splits": 5,
+    "n_repeats": 3,
+    "semilla": 42,
+    "metrica_principal": "f1",
+    "metricas_secundarias": [
+      "roc_auc",
+      "precision",
+      "recall",
+      "accuracy"
+    ]
+  },
+  "reproduccion_ok": true,
+  "comparacion_familias": {
+    "Regresión Logística": {
+      "f1_mean": 0.6922,
+      "f1_std": 0.0124,
+      "roc_auc_mean": 0.8443,
+      "roc_auc_std": 0.0099,
+      "recall_mean": 0.7643,
+      "precision_mean": 0.6326,
+      "fit_time_mean": 0.0254,
+      "score_time_mean": 0.0183
+    },
+    "SVM lineal": {
+      "f1_mean": 0.6903,
+      "f1_std": 0.0128,
+      "roc_auc_mean": 0.8438,
+      "roc_auc_std": 0.0094,
+      "recall_mean": 0.7692,
+      "precision_mean": 0.6263,
+      "fit_time_mean": 0.8345,
+      "score_time_mean": 0.1276
+    },
+    "SVM RBF": {
+      "f1_mean": 0.6833,
+      "f1_std": 0.0156,
+      "roc_auc_mean": 0.8299,
+      "roc_auc_std": 0.0093,
+      "recall_mean": 0.7479,
+      "precision_mean": 0.6293,
+      "fit_time_mean": 0.4432,
+      "score_time_mean": 0.3369
+    },
+    "Random Forest": {
+      "f1_mean": 0.665,
+      "f1_std": 0.0173,
+      "roc_auc_mean": 0.8323,
+      "roc_auc_std": 0.0103,
+      "recall_mean": 0.6498,
+      "precision_mean": 0.6814,
+      "fit_time_mean": 2.6879,
+      "score_time_mean": 0.1729
+    },
+    "Gradient Boosting": {
+      "f1_mean": 0.6627,
+      "f1_std": 0.017,
+      "roc_auc_mean": 0.8369,
+      "roc_auc_std": 0.0105,
+      "recall_mean": 0.6299,
+      "precision_mean": 0.6995,
+      "fit_time_mean": 3.6326,
+      "score_time_mean": 0.0273
+    },
+    "MLP (red neuronal)": {
+      "f1_mean": 0.6514,
+      "f1_std": 0.0192,
+      "roc_auc_mean": 0.8332,
+      "roc_auc_std": 0.0078,
+      "recall_mean": 0.6115,
+      "precision_mean": 0.6989,
+      "fit_time_mean": 0.2292,
+      "score_time_mean": 0.0208
+    },
+    "HistGradientBoosting": {
+      "f1_mean": 0.6443,
+      "f1_std": 0.0174,
+      "roc_auc_mean": 0.8242,
+      "roc_auc_std": 0.0122,
+      "recall_mean": 0.6118,
+      "precision_mean": 0.681,
+      "fit_time_mean": 0.721,
+      "score_time_mean": 0.0536
+    },
+    "Dummy (baseline)": {
+      "f1_mean": 0.0,
+      "f1_std": 0.0,
+      "roc_auc_mean": 0.5,
+      "roc_auc_std": 0.0,
+      "recall_mean": 0.0,
+      "precision_mean": 0.0,
+      "fit_time_mean": 0.016,
+      "score_time_mean": 0.019
+    }
+  },
+  "seleccion": {
+    "n_total": 27,
+    "n_reducido": 14,
+    "f1_full": 0.6640417291336382,
+    "f1_red": 0.6631146581089105
+  },
+  "tuning": {
+    "rf_best": {
+      "n_estimators": 200,
+      "min_samples_leaf": 8,
+      "max_features": "sqrt",
+      "max_depth": 6
+    },
+    "rf_best_f1": 0.6847462053978857,
+    "svm_best": {
+      "C": 0.1,
+      "kernel": "linear"
+    },
+    "svm_best_f1": 0.6923650289185607
+  },
+  "smote_vs_classweight": {
+    "rf_class_weight_f1": 0.6640417291336382,
+    "rf_smote_f1": 0.6725363890501695
+  },
+  "finalistas": [
+    "Regresión Logística",
+    "SVM lineal"
+  ],
+  "matriz_decision": {
+    "puntajes": {
+      "Regresión Logística": 4.0,
+      "SVM lineal": 2.25
+    },
+    "ganador": "Regresión Logística"
+  },
+  "test": {
+    "Regresión Logística": {
+      "Accuracy": 0.7533,
+      "Precision": 0.6313,
+      "Recall": 0.7377,
+      "F1-score": 0.6803,
+      "ROC-AUC": 0.8316
+    },
+    "SVM lineal": {
+      "Accuracy": 0.7583,
+      "Precision": 0.6367,
+      "Recall": 0.7471,
+      "F1-score": 0.6875,
+      "ROC-AUC": 0.8312
+    }
+  },
+  "errores": {
+    "VN": 589,
+    "VP": 318,
+    "FP": 184,
+    "FN": 109
+  },
+  "umbral": {
+    "por_f1": 0.475,
+    "youden": 0.475,
+    "min_recall_0.90": 0.31,
+    "operativo": 0.4,
+    "criterio_operativo": "max F1 sujeto a recall>=0.80"
+  },
+  "importancia_top": {
+    "earnedgpm": 0.1449,
+    "cspm": 0.0866,
+    "golddiffat15": 0.0465,
+    "xpdiffat15": 0.0261,
+    "damageshare": 0.0042,
+    "csat15": 0.0026,
+    "dpm": 0.0012,
+    "assists": 0.0006,
+    "deaths": 0.0003,
+    "goldat15": 0.0003
+  },
+  "importancia_modelo_tipo": "coeficientes (features estandarizadas)",
+  "shap_top": {
+    "earnedgpm": 0.918,
+    "cspm": 0.6797,
+    "golddiffat15": 0.5631,
+    "xpdiffat15": 0.3296,
+    "impacto_dano": 0.1507,
+    "oro_por_cs15": 0.1125,
+    "damageshare": 0.112,
+    "csat15": 0.0741,
+    "deaths": 0.059,
+    "kda": 0.0559
+  },
+  "shap_ok": true,
+  "sesgos": {
+    "posicion": {
+      "bot": 0.741,
+      "jng": 0.817,
+      "mid": 0.635,
+      "sup": 0.815,
+      "top": 0.69
+    },
+    "nivel_gasto": {
+      "bajo": 0.327,
+      "medio": 0.632,
+      "alto": 0.907
+    }
+  },
+  "verificacion_carga_ok": true,
+  "simulacion": {
+    "Alto (perfil LCK)": {
+      "probabilidad_LCK": 0.9942,
+      "clasificacion": "LCK"
+    },
+    "Bajo (perfil CL)": {
+      "probabilidad_LCK": 0.0117,
+      "clasificacion": "LCK CL"
+    },
+    "Riesgo medio": {
+      "probabilidad_LCK": 0.2975,
+      "clasificacion": "LCK CL"
+    },
+    "Categoría rara (pos. 'jungla')": {
+      "probabilidad_LCK": 0.1005,
+      "clasificacion": "LCK CL"
+    },
+    "Cercano al umbral": {
+      "probabilidad_LCK": 0.4017,
+      "clasificacion": "LCK"
+    }
+  },
+  "modelo_final": "Regresión Logística"
+}

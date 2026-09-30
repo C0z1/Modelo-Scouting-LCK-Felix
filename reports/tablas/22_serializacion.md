@@ -1,0 +1,5 @@
+| Artefacto      | Archivo                               | Versión          | Fecha      | Biblioteca           |
+|:---------------|:--------------------------------------|:-----------------|:-----------|:---------------------|
+| Pipeline final | models/pipeline_final.joblib          | 1.0.0-fase-final | 2026-09-29 | joblib/sklearn 1.8.0 |
+| Metadatos      | models/metadata.json                  | 1.0.0-fase-final | 2026-09-29 | json                 |
+| Umbral         | models/metadata.json (campo 'umbral') | 1.0.0-fase-final | 2026-09-29 | —                    |

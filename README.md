@@ -1,48 +1,91 @@
-# Modelo de Scouting LCK
+# Modelo de Scouting LCK — Fase Final
 
-Clasificación binaria para predecir si un jugador pertenece a la LCK o a la LCK Challengers League, usando estadísticas de rendimiento individual por partida.
+Clasificación binaria para predecir si un jugador tiene perfil de **LCK** (liga principal) o de **LCK
+Challengers League** (academia) a partir de estadísticas de rendimiento **individual por partida**, como
+**apoyo** —nunca sustituto— a las decisiones de scouting.
 
-## Contexto
+> Esta es la **fase final** del proyecto: continúa el *avance* (notebook original `LCK_Scouting_Model.ipynb`)
+> y lo lleva a una solución **trazable, reproducible, interpretable y defendible para una prueba controlada**,
+> siguiendo el flujo de `CLAUDE.md`.
 
-En Corea del Sur, los equipos de League of Legends tienen que decidir cada temporada qué jugadores de academia están listos para competir en la liga principal (LCK). Este proyecto busca apoyar esa decisión con un modelo de machine learning entrenado con datos históricos de Oracle's Elixir (2022–2024).
+## ⚠️ Uso responsable
+Ninguna decisión sobre un jugador debe automatizarse solo con la predicción. **Todo resultado requiere
+revisión humana.** La influencia de una variable **no** implica causalidad.
 
-## Dataset
+## Nota sobre los datos
+El dataset del avance es **simulado dentro del propio notebook** (semilla 42). Esta fase lo **reproduce
+de forma modular y verificable** (`src/data_simulada.py`) para mantener el mismo problema, dataset y
+variable objetivo, y no romper la comparabilidad. Con datos reales de Oracle's Elixir los resultados
+pueden variar.
 
-- **Fuente:** [Oracle's Elixir](https://oracleselixir.com)
-- **Cobertura:** Temporadas 2022, 2023 y 2024
-- **Registros:** ~8,000 actuaciones individuales (LCK + LCK CL)
-- **Variables clave:** `cspm`, `earnedgpm`, `golddiffat15`, `xpdiffat15`, `dpm`, `damageshare`, `position`
-
-## Estructura del notebook
-
-| Sección | Contenido |
-|---------|-----------|
-| 1–3 | Definición del problema, pregunta de análisis y descripción del dataset |
-| 4 | Diccionario de variables |
-| 5–7 | EDA, calidad de datos y desbalance de clases |
-| 8–10 | Fuga de información, partición y pipeline de preprocesamiento |
-| 11–13 | Baseline, comparación de modelos y métricas |
-| 14–15 | Análisis de FP/FN y umbrales |
-| 16–19 | Modelo final, plan de mejora y conclusiones |
-
-## Modelos evaluados
-
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Gradient Boosting
-
-La selección final se basa en AUC-ROC y F1-Score en el conjunto de validación, priorizando Recall de la clase LCK para minimizar falsos negativos.
-
-## Requisitos
+## Estructura
 
 ```
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-imbalanced-learn
-scipy
+.
+├── CLAUDE.md                     # rúbrica de la fase final
+├── README.md
+├── requirements.txt              # versiones exactas
+├── data/
+│   ├── raw/dataset_simulado.csv  # dataset reproducible
+│   └── processed/                # splits train/val/test
+├── notebooks/
+│   └── 01_fase_final.ipynb       # notebook principal (orquesta y narra las 31 secciones)
+├── src/
+│   ├── config.py                 # semilla, rutas, listas de variables
+│   ├── data_simulada.py          # generación reproducible del dataset
+│   ├── features.py               # FeatureEngineer (4 características nuevas)
+│   ├── preprocessing.py          # Pipeline + ColumnTransformer
+│   ├── split.py                  # partición 70/15/15 y estrategias de CV
+│   ├── train.py                  # catálogos de modelos, CV, pipelines
+│   ├── evaluate.py               # métricas, umbral, errores, sesgos
+│   ├── predict.py                # inferencia independiente + verificación de carga
+│   ├── validate_input.py         # validación de datos de entrada
+│   ├── reporting.py              # guardado de tablas/figuras
+│   └── run_pipeline.py           # driver: ejecuta TODO y genera artefactos
+├── models/                       # pipeline_final.joblib + metadata.json (hash)
+├── reports/
+│   ├── tablas/                   # todas las tablas (CSV + Markdown)
+│   ├── figuras/                  # ROC, PR, matrices, importancias, SHAP
+│   ├── ficha_modelo.md
+│   └── reporte_ejecutivo.md
+├── experiments/registro_experimentos.csv
+└── examples/                     # entradas de ejemplo (CSV/JSON)
 ```
 
+## Cómo ejecutar
+
+```bash
+pip install -r requirements.txt
+
+# 1) Regenerar todo (tablas, figuras, modelo serializado). ~5 min.
+python -m src.run_pipeline
+
+# 2) Notebook principal (orquesta y narra)
+jupyter notebook notebooks/01_fase_final.ipynb
+
+# 3) Inferencia sobre nuevos registros
+python -m src.predict --input examples/ejemplo_entrada.csv
+python -m src.predict --input examples/ejemplo_entrada.json --umbral 0.45
+```
+
+## Resultados (resumen)
+
+| | Modelo final | Validación (CV) | Prueba |
+|---|---|---|---|
+| **Regresión Logística** | `class_weight=balanced` | F1 ≈ 0.692 · AUC ≈ 0.844 | F1 0.680 · AUC 0.832 · Recall 0.738 |
+
+- **Umbral operativo:** 0.40 (máx. F1 con recall ≥ 0.80, elegido en validación).
+- **Factores dominantes:** `earnedgpm`, `cspm`, `golddiffat15`, `xpdiffat15`.
+- **Familias comparadas:** Dummy, Regresión Logística, Random Forest, Gradient Boosting,
+  HistGradientBoosting, SVM (lineal/RBF) y MLP. Los modelos lineales encabezan en estos datos.
+
+## Reproducibilidad y trazabilidad
+- `random_state=42` en splits, CV, modelos y búsquedas.
+- Reproducción del avance verificada **bit a bit** (`reports/tablas/06_reproduccion_baselines`).
+- Artefacto serializado con **hash SHA-256** y verificación de carga automática.
+- Versiones exactas de bibliotecas en `requirements.txt`.
+
+## Documentación
+- **Técnica/operativa:** `reports/ficha_modelo.md`
+- **No técnica:** `reports/reporte_ejecutivo.md`
+- **Rúbrica y reglas:** `CLAUDE.md`

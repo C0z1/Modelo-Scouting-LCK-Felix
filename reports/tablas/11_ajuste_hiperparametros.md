@@ -1,0 +1,4 @@
+| Modelo        | Hiperparámetros explorados                              |   N.º combinaciones | Mejor configuración                                                                  |   F1 CV (mejor) |   Tiempo (s) |
+|:--------------|:--------------------------------------------------------|--------------------:|:-------------------------------------------------------------------------------------|----------------:|-------------:|
+| Random Forest | n_estimators, max_depth, min_samples_leaf, max_features |                  15 | {'n_estimators': 200, 'min_samples_leaf': 8, 'max_features': 'sqrt', 'max_depth': 6} |          0.6847 |        118.9 |
+| SVM           | kernel (linear/rbf), C, gamma                           |                  12 | {'C': 0.1, 'kernel': 'linear'}                                                       |          0.6924 |         30.5 |

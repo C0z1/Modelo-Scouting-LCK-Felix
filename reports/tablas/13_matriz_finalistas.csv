@@ -1,0 +1,9 @@
+Criterio,Peso %,Regresión Logística,SVM lineal
+Recall,25,1.0,5.0
+Precision,15,5.0,1.0
+F1-score,20,5.0,1.0
+ROC-AUC,20,5.0,1.0
+Estabilidad,10,5.0,1.0
+Interpretabilidad,5,5.0,4.0
+Costo operativo,5,5.0,3.0
+PUNTAJE PONDERADO,100,4.0,2.25

@@ -1,0 +1,29 @@
+| Variable        |   SHAP medio |·| |
+|:----------------|-----------------:|
+| earnedgpm       |           0.918  |
+| cspm            |           0.6797 |
+| golddiffat15    |           0.5631 |
+| xpdiffat15      |           0.3296 |
+| impacto_dano    |           0.1507 |
+| oro_por_cs15    |           0.1125 |
+| damageshare     |           0.112  |
+| csat15          |           0.0741 |
+| deaths          |           0.059  |
+| kda             |           0.0559 |
+| dpm             |           0.0524 |
+| dominancia15    |           0.0476 |
+| position_top    |           0.035  |
+| assists         |           0.0346 |
+| goldat15        |           0.0345 |
+| vspm            |           0.0299 |
+| position_jng    |           0.0236 |
+| xpat15          |           0.0214 |
+| position_sup    |           0.0157 |
+| position_mid    |           0.0148 |
+| kills           |           0.0123 |
+| deathsat15      |           0.011  |
+| assistsat15     |           0.0087 |
+| position_bot    |           0.0076 |
+| participacion15 |           0.0061 |
+| year            |           0.0056 |
+| killsat15       |           0.0006 |

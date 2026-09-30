@@ -1,0 +1,7 @@
+|                 |   corr_con_is_lck (train) |
+|:----------------|--------------------------:|
+| kda             |                    -0.009 |
+| oro_por_cs15    |                    -0.014 |
+| dominancia15    |                     0.314 |
+| participacion15 |                    -0.007 |
+| impacto_dano    |                     0.013 |

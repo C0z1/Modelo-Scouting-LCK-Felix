@@ -1,0 +1,6 @@
+perfil,probabilidad_LCK,clasificacion,umbral_utilizado
+Alto (perfil LCK),0.9942,LCK,0.4
+Bajo (perfil CL),0.0117,LCK CL,0.4
+Riesgo medio,0.2975,LCK CL,0.4
+Categoría rara (pos. 'jungla'),0.1005,LCK CL,0.4
+Cercano al umbral,0.4017,LCK,0.4
